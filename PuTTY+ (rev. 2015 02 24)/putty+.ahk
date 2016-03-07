@@ -1,13 +1,13 @@
-#NoEnv
-SendMode Input
+#NoEnv ; prevents empty variables from being looked up as potential environment variables, generally improves performance
+SendMode Input ; switches to SendInput method for Send, Click, and MouseMove/Click/Drag
 
-SetWorkingDir, A_Desktop\PuTTY+
+SetWorkingDir, A_Desktop\PuTTY+ ; as noted in the readme, this script expects the included PuTTY+ folder on the desktop.
 
-MsgBox I am NOT responsible for any total screwups you perform with this utility. That said, if you follow the instructions and most importantly LEAVE PUTTY ALONE WHILE USING THIS you should be perfectly fine. `n `n Aaron, 2014
+MsgBox Please follow the instructions and most importantly LEAVE PUTTY ALONE WHILE USING THIS! `n `n Aaron, 2015
 
 Login:
 {
-IfWinExist, 128.200.235.235
+IfWinExist, 128.200.235.235 ; checks to see if PuTTY is already running (common user behavior)
  MsgBox Can't be running PuTTY while you use this. Close it before continuing or things WILL get freaky.
 }
 
@@ -25,9 +25,9 @@ ExitApp
 return
 
 verify:
-Gui, Submit, NoHide
+Gui, Submit, NoHide ; submits data input by user into edit fields and suppresses ahk's default hide behavior
 
-If(strlen(User)<=0) {
+If(strlen(User)<=0) { ; that is, if the user hasn't bothered to put in a username
     MsgBox You need a username!
 } else {
 	Gosub CheckPass
@@ -35,7 +35,7 @@ If(strlen(User)<=0) {
 return
 
 CheckPass:
-If(strlen(Pass)<=0) {
+If(strlen(Pass)<=0) { ; that is, if the user hasn't bothered to put in a password
     MsgBox You need a password!
 } else {
 	Gui, Destroy
