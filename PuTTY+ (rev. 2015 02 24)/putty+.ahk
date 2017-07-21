@@ -1,5 +1,5 @@
-#NoEnv ; prevents empty variables from being looked up as potential environment variables, generally improves performance
-SendMode Input ; switches to SendInput method for Send, Click, and MouseMove/Click/Drag
+#NoEnv ; performance
+SendMode Input ; switches to SendInput for Send/Click/MouseMove/Click/Drag
 
 SetWorkingDir, A_Desktop\PuTTY+ ; as noted in the readme, this script expects the included PuTTY+ folder on the desktop.
 
